@@ -6,7 +6,7 @@ import os
 import configparser
 from shutil import copy
 
-MASTER_DIRS = ['vqe', 'test']
+MASTER_DIRS = ['vqe']
 
 MASTER_PACKAGES = {}
 
