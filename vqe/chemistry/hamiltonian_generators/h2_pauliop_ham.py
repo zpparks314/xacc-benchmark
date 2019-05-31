@@ -6,7 +6,7 @@ from xaccvqe import PauliOperator
 
 
 @ComponentFactory("simpleH2_hamiltonian_generator_factory")
-@Provides("hamiltonian_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "simpleH2")
 @Property("_name", "name", "simpleH2")
 @Instantiate("simpleH2_hamiltonian_generator_instance")

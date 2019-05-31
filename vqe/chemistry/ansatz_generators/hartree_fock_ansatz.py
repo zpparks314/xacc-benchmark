@@ -5,7 +5,7 @@ import ast
 import xacc
 
 @ComponentFactory("hf_ansatz_generator_factory")
-@Provides("ansatz_generator_service")
+@Provides("ansatz_generator")
 @Property("_ansatz_generator", "ansatz_generator", "hf")
 @Property("_name", "name", "hf")
 @Instantiate("hf_ansatz_generator_instance")

@@ -14,7 +14,7 @@ except:
 
 
 @ComponentFactory("Psi4OF_hamiltonian_generator_factory")
-@Provides("hamiltonian_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "psi4Of")
 @Property("_name", "name", "psi4Of")
 @Instantiate("Psi4OF_hamiltonian_generator_instance")

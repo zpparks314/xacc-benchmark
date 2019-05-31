@@ -7,7 +7,7 @@ from xaccvqe import PauliOperator
 
 
 @ComponentFactory("nah_10qubit_hamiltonian_generator_factory")
-@Provides("hamiltonian_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "nah_10qubit")
 @Property("_name", "name", "nah_10qubit")
 @Instantiate("nah_10qubit_hamiltonian_generator_instance")

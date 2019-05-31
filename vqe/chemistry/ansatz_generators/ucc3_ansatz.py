@@ -5,7 +5,7 @@ import ast
 import xacc
 
 @ComponentFactory("ucc3_ansatz_generator_factory")
-@Provides("ansatz_generator_service")
+@Provides("ansatz_generator")
 @Property("_ansatz_generator", "ansatz_generator", "ucc3")
 @Property("_name", "name", "ucc3")
 @Instantiate("ucc3_ansatz_generator_instance")

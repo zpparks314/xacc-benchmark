@@ -6,7 +6,7 @@ import xaccvqe as vqe
 
 
 @ComponentFactory("xaccKernelH2_hamiltonian_generator_factory")
-@Provides("hamiltonian_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "xaccKernelH2")
 @Property("_name", "name", "xaccKernelH2")
 @Instantiate("xaccKernelH2_hamiltonian_generator_instance")

@@ -16,7 +16,7 @@ except:
     pass
 
 @ComponentFactory("frozencore_hamiltonian_generator_factory")
-@Provides("hamiltonian_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "frozen-core")
 @Property("_name", "name", "frozen-core")
 @Instantiate("frozencore_hamiltonian_generator_instance")

@@ -6,7 +6,7 @@ import xacc
 from xaccvqe import PauliOperator
 
 @ComponentFactory("taperedfrozencore_hamiltonian_generator_factory")
-@Provides("molecule_generator_service")
+@Provides("hamiltonian_generator")
 @Property("_hamiltonian_generator", "hamiltonian_generator", "tapered-frozen-core")
 @Property("_name", "name", "tapered-frozen-core")
 @Instantiate("taperedfrozencore_hamiltonian_generator_instance")

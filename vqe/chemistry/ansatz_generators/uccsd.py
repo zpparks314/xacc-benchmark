@@ -5,7 +5,7 @@ import ast
 import xacc
 
 @ComponentFactory("uccsd_ansatz_generator_factory")
-@Provides("ansatz_generator_service")
+@Provides("ansatz_generator")
 @Property("_ansatz_generator", "ansatz_generator", "uccsd")
 @Property("_name", "name", "uccsd")
 @Instantiate("uccsd_ansatz_generator_instance")
