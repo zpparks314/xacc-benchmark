@@ -23,6 +23,7 @@ def parse_args(args):
                                      fromfile_prefix_chars='@')
     parser.add_argument("-i", "--install", type=str, help="Install a plugin package to the XACC plugin directory.", required=False)
     parser.add_argument("-l", "--list", help="List all available plugin packages for installation.", required=False, action='store_true')
+    parser.add_argument("-p", "--path", help="Set the XACC Python Plugin path (default = /root/.xacc/py-plugins)", required=False)
 
     opts = parser.parse_args(args)
     return opts
@@ -36,7 +37,6 @@ def install_package(install_name):
 
     install_directive = os.path.join(package_path+"/install.ini") if os.path.isfile(package_path+"/install.ini") else None
     plugin_files = []
-
     if not install_directive:
         plugin_files += [package_path+"/"+f for f in os.listdir(
             package_path) if os.path.isfile(os.path.join(package_path, f)) and f.endswith(".py")]
@@ -49,9 +49,12 @@ def install_package(install_name):
     for plugin in plugin_files:
         copy(os.path.join(plugin), XACC_PYTHON_PLUGIN_PATH)
 
-    xacc.info(F"Installed {n_plugins} plugins from the '{install_name}' package.")
+    xacc.info(F"Installed {n_plugins} plugins from the '{install_name}' package to the {XACC_PYTHON_PLUGIN_PATH}.")
 
-
+def set_plugin_path(path):
+    global XACC_PYTHON_PLUGIN_PATH
+    XACC_PYTHON_PLUGIN_PATH = path
+    print(XACC_PYTHON_PLUGIN_PATH)
 
 def read_install_directive(install_file, parent):
     config = configparser.RawConfigParser()
@@ -83,7 +86,13 @@ def main(argv=None):
     opts = parse_args(sys.argv[1:])
     get_packages()
 
+    if opts.path:
+        print("YES")
+        set_plugin_path(opts.path)
+
+    print(XACC_PYTHON_PLUGIN_PATH)
     if opts.install:
+        print("YES")
         install_package(opts.install)
 
     if opts.list:
