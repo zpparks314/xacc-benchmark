@@ -54,7 +54,6 @@ def install_package(install_name):
 def set_plugin_path(path):
     global XACC_PYTHON_PLUGIN_PATH
     XACC_PYTHON_PLUGIN_PATH = path
-    print(XACC_PYTHON_PLUGIN_PATH)
 
 def read_install_directive(install_file, parent):
     config = configparser.RawConfigParser()
@@ -87,12 +86,9 @@ def main(argv=None):
     get_packages()
 
     if opts.path:
-        print("YES")
         set_plugin_path(opts.path)
 
-    print(XACC_PYTHON_PLUGIN_PATH)
     if opts.install:
-        print("YES")
         install_package(opts.install)
 
     if opts.list:
