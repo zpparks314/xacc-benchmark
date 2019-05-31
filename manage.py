@@ -5,7 +5,7 @@ import argparse
 import os
 import configparser
 from shutil import copy
-
+import xacc
 MASTER_DIRS = ['vqe']
 
 MASTER_PACKAGES = {}
@@ -31,7 +31,7 @@ def install_package(install_name):
     try:
         package_path = PLUGIN_INSTALLATIONS[install_name]
     except KeyError as ex:
-        print(F"There is no '{install_name}' XACC Python plugin package available.")
+        xacc.info(F"There is no '{install_name}' XACC Python plugin package available.")
         exit(1)
 
     install_directive = os.path.join(package_path+"/install.ini") if os.path.isfile(package_path+"/install.ini") else None
@@ -49,7 +49,7 @@ def install_package(install_name):
     for plugin in plugin_files:
         copy(os.path.join(plugin), XACC_PYTHON_PLUGIN_PATH)
 
-    print(F"Installed {n_plugins} plugins from the '{install_name}' package.")
+    xacc.info(F"Installed {n_plugins} plugins from the '{install_name}' package.")
 
 
 
@@ -87,8 +87,8 @@ def main(argv=None):
         install_package(opts.install)
 
     if opts.list:
-        print("Available XACC Python plugin packages:")
+        xacc.info("Available XACC Python plugin packages:")
         for k, v in MASTER_PACKAGES.items():
-            print(F"{k:5}: {v!s}")
+            xacc.info(F"{k:5}: {v!s}")
 if __name__ == "__main__":
     sys.exit(main())
