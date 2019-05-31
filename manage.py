@@ -95,5 +95,6 @@ def main(argv=None):
         xacc.info("Available XACC Python plugin packages:")
         for k, v in MASTER_PACKAGES.items():
             xacc.info(F"{k:5}: {v!s}")
+
 if __name__ == "__main__":
     sys.exit(main())
